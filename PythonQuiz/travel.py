@@ -18,10 +18,16 @@ def main():
     crime = ""
     is_kid_friendly = True
 
+    climate = ""
+
+    season_selected = ""
+
     arrayM = []
     array_cost = []
     array_crime = []
     array_kids = []
+    array_climate = []
+    array_season_score = []
 
     name = input("What is your name? ")
     print("Hello", name + "! ")
@@ -174,5 +180,104 @@ def main():
 
 
 
+#----------------------------------------------------------------
+
+    print("What climate do you prefer?")
+    print(" 1) cold")
+    print(" 2) cool")
+    print(" 3) moderate")
+    print(" 4) warm")
+    print(" 5) hot")
+    choice = str(input(""))
+
+    if choice == '1':
+        climate = "cold"
+    elif choice == "2":
+        climate = "cool"
+    elif choice == "3":
+        climate = "moderate"
+    elif choice == "4":
+        climate = "warm"
+    elif choice == "5":
+        climate = "hot"
+    else:
+        print('invailid climate')
+
+
+    for destination in array_kids:
+
+        # print('climate====9999999:' + destination.get_climate())
+
+        # print('array_climate.count====99999991111:' + array_climate.count())
+
+        if destination.get_climate() == climate:
+
+            array_climate.append(destination)
+            print('Result66666666 ======== :-=-=-=-===---==--== ' + str(destination.get_name()))
+
+    if len(array_climate) == 0:
+        print('None Climate')
+        return;
+
+
+
+
+
+
+
+
+
+
+    #------------------------------------------------
+
+    print("Which season do you plan to travel in?")
+    print(" 1) spring")
+    print(" 2) summer")
+    print(" 3) autumn")
+    print(" 4) winter")
+    choice = str(input(""))
+
+    if choice == '1':
+        season_selected = "spring"
+    elif choice == "2":
+        season_selected = "summer"
+    elif choice == "3":
+        season_selected = "autumn"
+    elif choice == "4":
+        season_selected = "winter"
+    else:
+        print('invailid season')
+
+
+    for destination in array_climate:
+        print('season_selected9999====:' + season_selected)
+        array_season_score.append((float(destination.get_season_factor(season_selected))))
+
+
+    if len(array_season_score) == 0:
+        print('None season')
+        return;
+    else:
+        print('season')
+        # 排序
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
     main()
+
+
+def selectionComparable(array):
+    comparableArray = []
+
+    N = len(array)
+
+    for i, score in enumerate(array):
+        print("序号：%s   值：%s" % (i + 1, score))
+
+
